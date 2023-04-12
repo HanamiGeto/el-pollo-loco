@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Pollo Locco</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="img/assets/favicon_package_v0.16/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/assets/favicon_package_v0.16/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/assets/favicon_package_v0.16/favicon-16x16.png">
+    <link rel="manifest" href="img/assets/favicon_package_v0.16/site.webmanifest">
+    <link rel="mask-icon" href="img/assets/favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Favicon end -->
+    <script src="models/drawable-object.class.js"></script>
+    <script src="models/movable-object.class.js"></script>
+    <script src="models/character.class.js"></script>
+    <script src="models/chicken.class.js"></script>
+    <script src="models/small-chicken.class.js"></script>
+    <script src="models/cloud.class.js"></script>
+    <script src="models/status-bar-health.class.js"></script>
+    <script src="models/status-bar-coin.class.js"></script>
+    <script src="models/status-bar-bottle.class.js"></script>
+    <script src="models/status-bar-endboss.class.js"></script>
+    <script src="models/status-bar-endboss-icon.class.js"></script>
+    <script src="models/world.class.js"></script>
+    <script src="models/background-object.class.js"></script>
+    <script src="models/keyboard.class.js"></script>
+    <script src="models/level.class.js"></script>
+    <script src="models/throwable-object.class.js"></script>
+    <script src="models/coins.class.js"></script>
+    <script src="models/bottle.class.js"></script>
+    <script src="models/endboss.class.js"></script>
+    <script src="levels/level1.js"></script>
+    <script src="js/game.js"></script>
+</head>
+
+<body>
+    <div class="game-screen-container">
+        <div class="mobile-overlay d-none" id="mobile-overlay">
+            <h2>PLEASE ROTATE YOUR DEVICE</h2>
+        </div>
+        <div class="game-screen" id="game-screen">
+            <img class="" src="img/9_intro_outro_screens/start/startscreen_1.png" alt="" id="start-screen">
+            <img class="d-none" src="img/9_intro_outro_screens/game_over/game over.png" alt="" id="end-screen">
+            <div class="loading-screen d-none" id="loading-screen">
+                <h2>Loading Level</h2>
+                <div class="dot-flashing"></div>
+            </div>
+            <div class="">
+                <img class="icons d-none" id="mute" onclick="muteAllSounds()" src="img/assets/speaker-32.png" alt="">
+                <img class="icons d-none" id="unmute" onclick="unmuteAllSounds()" src="img/assets/mute-2-32.png" alt="">
+                <img class="icons fullscreen" id="enter-fullscreen" onclick="fullscreen()"
+                    src="img/assets/fit-to-width-32.png" alt="">
+                <img class="icons fullscreen d-none" id="exit-fullscreen" onclick="leaveFullscreen()"
+                    src="img/assets/fullscreen-exit-32.png" alt="">
+                <img class="icons" id="info" onclick="showInfo()" src="img/assets/info-5-32.png" alt="">
+            </div>
+            <div class="restart-screen d-none" id="restart-screen">
+                <h2 class="restart">Restart?</h2>
+                <span class="restart" id="restart-counter">10</span>
+            </div>
+            <div class="info-screen d-none" id="info-screen">
+                <h2>HOW TO PLAY</h2>
+                <img class="icons" id="back" onclick="closeInfo()" src="img/assets/arrow-84-32.png" alt="">
+                <div class="game-instructions-container">
+                    <div class="game-instructions">
+                        <span>Left arrow key</span>
+                        <span>Walk to the left</span>
+                    </div>
+                    <div class="game-instructions">
+                        <span>Right arrow key</span>
+                        <span>Walk to the right</span>
+                    </div>
+                    <div class="game-instructions">
+                        <span>Spacebar</span>
+                        <span>Jump</span>
+                    </div>
+                    <div class="game-instructions">
+                        <span>D</span>
+                        <span>Throw bottle</span>
+                    </div>
+                </div>
+            </div>
+            <div class="mobile-btn-container d-none" id="mobile-btn-container">
+                <div>
+                    <button class="mobile-btn" id="btn-left"></button>
+                    <button class="mobile-btn" id="btn-right"></button>
+                </div>
+                <div>
+                    <button class="mobile-btn" id="btn-jump"></button>
+                    <button class="mobile-btn" id="btn-throw"></button>
+                </div>
+            </div>
+            <button class="start-btn" onclick="init()" id="start-btn">
+                PRESS START
+            </button>
+            <canvas id="canvas" width="720" height="480"></canvas>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,257 @@
+@font-face {
+    font-family: 'Retro-Gaming';
+    src: url('fonts/retro-gaming.ttf') format('truetype');
+}
+
+
+body {
+    margin: 0;
+    font-family: 'Retro-Gaming', Arial, Helvetica, sans-serif;
+}
+
+canvas {
+    background-color: black;
+    display: block;
+}
+
+.d-none {
+    display: none !important;
+}
+
+.game-screen-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background-image: url('img/desert.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.game-screen {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.game-screen > img {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+.start-btn {
+    position: absolute;
+    bottom: 18px;
+    font-family: 'Retro-Gaming', Arial, Helvetica, sans-serif;
+    background-color: unset;
+    color: white;
+    border: none;
+    font-size: 20px;
+    animation-name: animation-start-btn;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    cursor: pointer;
+}
+
+@keyframes animation-start-btn {
+    0% {opacity: 1;}
+    50% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+.restart-screen,
+.info-screen,
+.loading-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    color: white;
+    background-color: black;
+}
+
+.loading-screen {
+    flex-direction: row;
+    gap: 20px;
+}
+
+/**
+ * ==============================================
+ * Dot Flashing
+ * ==============================================
+ */
+ .dot-flashing {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: white;
+    color: white;
+    animation: dot-flashing 1s infinite linear alternate;
+    animation-delay: 0.5s;
+    bottom: -4px;
+  }
+  .dot-flashing::before, .dot-flashing::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 0;
+  }
+  .dot-flashing::before {
+    left: -15px;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: white;
+    color: white;
+    animation: dot-flashing 1s infinite alternate;
+    animation-delay: 0s;
+  }
+  .dot-flashing::after {
+    left: 15px;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: white;
+    color: white;
+    animation: dot-flashing 1s infinite alternate;
+    animation-delay: 1s;
+  }
+  
+  @keyframes dot-flashing {
+    0% {
+      background-color: white;
+    }
+    50%, 100% {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+  }
+
+.restart {
+    font-size: 50px;
+}
+
+.info-screen {
+    justify-content: unset;
+    z-index: 2;
+}
+
+.game-instructions-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 80%;
+    padding-top: 20px;
+}
+
+.game-instructions {
+    display: flex;
+    width: 100%;
+    gap: 160px;
+}
+
+.game-instructions > span {
+    width: 50%;
+}
+
+.end-screen-animation {
+    animation-duration: 1s;
+    animation-name: slidein;
+}
+
+.icons {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    right: 14px;
+    cursor: pointer;
+}
+
+#mute,
+#unmute {
+    top: 60px;
+}
+
+#info,
+#back {
+    top: 14px;
+}
+
+.fullscreen {
+    bottom: 14px;
+}
+
+.mobile-btn-container {
+    display: flex;
+    width: 80%;
+    position: absolute;
+    bottom: 10px;
+    justify-content: space-between;
+}
+
+.mobile-btn {
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+    background-color: darkorange;
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+#btn-left {
+    background-image: url('img/assets/arrow-left-37-16.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+#btn-right {
+    background-image: url('img/assets/arrow-right-37-16.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+#btn-jump {
+    background-image: url('img/assets/arrow-up-37-16.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+#btn-throw {
+    background-image: url('img/assets/bottle-10-24.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.mobile-overlay {
+    position: absolute;
+    text-align: center;
+}
+
+@keyframes slidein {
+    from {
+        margin-left: 150%;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .game-screen,
+    canvas {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-height: 480px) {
+    .game-screen,
+    canvas {
+        height: 100vh;
+    }
+}
